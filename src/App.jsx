@@ -7,17 +7,10 @@ function App() {
 
   return (
     <BrowserRouter>
-      
       <Routes >
-        if(token){
-          <Route path='/home' element={<Home/>}/>
-        }else{
-          <Route path='/' element={<Login/>}/>
-        }
-        
-        
+        <Route path='/home' element={<Home/>}/>
+        <Route path='/' element={<Login/>}/>
       </Routes>
-      
     </BrowserRouter>
   )
 }
