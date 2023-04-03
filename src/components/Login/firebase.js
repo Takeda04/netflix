@@ -1,7 +1,5 @@
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
-
-
 const firebaseConfig = {
     apiKey: "AIzaSyAN9OwycmP9pq3PPixAFZFFdy64dJKt2ds",
     authDomain: "wornogram.firebaseapp.com",
@@ -15,3 +13,5 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig)
 
 export const auth = firebase.auth()
+
+

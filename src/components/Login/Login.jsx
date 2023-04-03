@@ -4,7 +4,9 @@ import { toastError, toastSuccess } from "../../utils/toast";
 import {GoogleAuthProvider} from 'firebase/auth'
 // import { GithubAuthProvider } from "firebase/auth";
 import netflix from '../../assets/images/Vector.svg'
+import { useNavigate } from "react-router-dom";
 function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -23,13 +25,13 @@ function Login() {
       const request = auth.signInWithEmailAndPassword(email, password);
       await request;
       request.then((result) => {
-        let accessToken = result.user.multiFactor.user.accessToken;
-        let refreshToken = result.user.multiFactor.user.stsTokenManager.refreshToken;
+        let accessToken = result.user.multiFactor.user.uid;
         localStorage.setItem('accessToken', accessToken);
-        localStorage.setItem('refreshToken', refreshToken);
         setEmail("");
         setPassword("");
         toastSuccess("User Signed In Successfully");
+        navigate('/home')
+        console.log(result);
       });
     } catch (error) {
       toastError(error.message);
@@ -44,13 +46,13 @@ function Login() {
       const request = auth.createUserWithEmailAndPassword(email, password);
       await request;
       request.then((result) => {
-        let accessToken = result.user.multiFactor.user.accessToken;
-        let refreshToken = result.user.multiFactor.user.stsTokenManager.refreshToken;
+        let accessToken = result.user.multiFactor.user.uid;
         localStorage.setItem('accessToken', accessToken);
-        localStorage.setItem('refreshToken', refreshToken);
         setEmail("");
         setPassword("");
         toastSuccess("User Signed Up Successfully");
+        navigate('/home')
+        console.log(result);
       });
     } catch (error) {
       toastError(error.message);
@@ -62,11 +64,11 @@ function Login() {
     const provider = new GoogleAuthProvider();
     try {
       const result = await auth.signInWithPopup(provider);
-      let accessToken = result.user.multiFactor.user.accessToken;
-      let refreshToken = result.user.multiFactor.user.stsTokenManager.refreshToken;
+      let accessToken = result.user.multiFactor.user.uid;
       localStorage.setItem('accessToken', accessToken);
-      localStorage.setItem('refreshToken', refreshToken);
       toastSuccess("User Signed In Successfully");
+      navigate('/home')
+      console.log(result);
     } catch (error) {
       toastError(error.message);
     }
@@ -89,10 +91,10 @@ function Login() {
   
 
   return (
-    <section className="bg-gray-50 dark:bg-gray-900">
+    <section className="bg-gray-50 dark:bg-zinc-950">
       <div className="flex flex-col items-center justify-center  mx-auto md:h-screen lg:py-0">
       <img src={netflix} alt="" className="my-4" />
-        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-zinc-900 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Sign in to your account
@@ -134,21 +136,21 @@ function Login() {
               <button
                 onClick={handleSignIn}
                 type="submit"
-                className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                className="w-full text-white bg-red-700 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-700 dark:hover:bg-red-500 dark:focus:ring-primary-800"
               >
                 Login
               </button>
               <button
                 onClick={handleSignUp}
                 type="submit"
-                className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                className="w-full text-white bg-red-700 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-700 dark:hover:bg-red-500 dark:focus:ring-primary-800"
               >
                 Register
               </button>
               <button
                 onClick={handleGoogleSignIn}
                 type="submit"
-                className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                className="w-full text-white bg-red-700 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-700 dark:hover:bg-red-500 dark:focus:ring-primary-800"
               >
                 Sign In with Google
               </button>

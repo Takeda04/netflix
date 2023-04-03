@@ -5,8 +5,8 @@ import './index.css'
 import { Toaster } from 'react-hot-toast';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Toaster reverseOrder= {true}/>
-    <App />
-  </React.StrictMode>,
+    <>
+      <Toaster reverseOrder= {true}/>
+      <App />
+    </>
 )
