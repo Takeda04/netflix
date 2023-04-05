@@ -5,6 +5,7 @@ import Header from '../components/Header/Header'
 import ThirdSlider from '../components/Slider/ThirdSlider'
 import SecondSlider from '../components/Slider/SecondSlider'
 import Slider from '../components/Slider/Slider'
+import MainSlider from '../components/Slider/MainSlider'
 const Home = () => {
   return (
     <div className=''>
@@ -13,6 +14,7 @@ const Home = () => {
           <Slider/>
           <SecondSlider/>
           <ThirdSlider/>
+          <MainSlider/>
        <Footer/>
     </div>
   )

@@ -8,7 +8,7 @@ const Body = () => {
   return (
     <div >
       <div>
-        <img className="relative w-[100%]" src={bodyImg} alt="" />
+        <img className="w-[100%]" src={bodyImg} alt="" />
         <img
           className="absolute mt-[-600px] ml-12 z-20"
           src={movieName}
