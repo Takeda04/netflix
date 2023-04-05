@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { BASE_URL2 } from "../../utils/Api";
+import { BASE_URL4 } from "../../utils/Api";
 import ky from "ky";
 import MainCard from "../Card/MainCard";
 
-const films = await ky.get(BASE_URL2).json();
+const films = await ky.get(BASE_URL4).json();
  const movies = films.results;
+ console.log(movies);
 export default class SimpleSlider extends Component {
     state = {
         movies: []
@@ -23,16 +24,13 @@ export default class SimpleSlider extends Component {
             autoplay: true
             
         };
-        console.log(settings);
         return (
             <div className="px-[50px] mt-[680px]">
-
+                <h2 className="text-white text-2xl mb-4">Netflix Orijinal İçerikleri</h2>
                 <Slider {...settings} className="">
                          {movies.map((item, i) => (
                            <MainCard key={i} item={item}/>
                          ))}
-                  <div></div>
-                  <div></div>
                 </Slider>
             </div>
         );
