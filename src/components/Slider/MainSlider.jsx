@@ -6,15 +6,19 @@ import { BASE_URL4 } from "../../utils/Api";
 import ky from "ky";
 import MainCard from "../Card/MainCard";
 
-const films = await ky.get(BASE_URL4).json();
- const movies = films.results;
- console.log(movies);
 export default class SimpleSlider extends Component {
     state = {
         movies: []
     }
 
+    async componentDidMount() {
+        const films = await ky.get(BASE_URL4).json();
+        const movies = films.results;
+        this.setState({ movies });
+    }
+
     render() {
+        const { movies } = this.state;
         const settings = {
             dots: true,
             infinite: true,
@@ -22,7 +26,6 @@ export default class SimpleSlider extends Component {
             slidesToShow: 4,
             slidesToScroll: 1,
             autoplay: true
-            
         };
         return (
             <div className="px-[50px] mt-[680px]">

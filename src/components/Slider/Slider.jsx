@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../Card/Card";
 import ky from "ky";
 import { BASE_URL } from "../../utils/Api";
 
-const films = await ky.get(BASE_URL).json();
-const movies = films.results;
 
 
 const Slider = () => {
+  const [movies, setMovies] = useState([]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const films = await ky.get(BASE_URL).json();
+      setMovies(films.results);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="absolute mt-[-100px] ml-8">

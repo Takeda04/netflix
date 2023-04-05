@@ -23,7 +23,7 @@ function Login() {
     
     try {
       const request = auth.signInWithEmailAndPassword(email, password);
-      await request;
+      request;
       request.then((result) => {
         let accessToken = result.user.multiFactor.user.uid;
         localStorage.setItem('accessToken', accessToken);
