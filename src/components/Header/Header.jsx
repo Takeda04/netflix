@@ -9,7 +9,6 @@ const Header = () => {
     const signOut = ()=> {
         firebase.auth().signOut();
         localStorage.removeItem('accessToken');
-        localStorage.removeItem('refreshToken');
         navigate('/')
         
     }
