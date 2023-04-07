@@ -20,7 +20,7 @@ const SinglePageCard = () => {
 
   return (
     <div className="text-center">
-      <img className="w-[80%] block mx-auto" src={`${IMG_URL}${item?.backdrop_path}`} alt="slaom" />
+      <img className="w-[100%] block mx-auto" src={`${IMG_URL}${item?.backdrop_path}`} alt="slaom" />
       <h4 className=" mb-3 bg-slate-500 w-[50%] mx-auto rounded-xl mt-3">{item?.title}</h4>
       <p className="text-white w-[60%] mx-auto border-2 rounded-xl">{item?.overview}</p>
       <p className="text-slate-700 mt-3">{item?.release_date}</p>
