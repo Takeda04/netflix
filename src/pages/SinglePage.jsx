@@ -1,10 +1,9 @@
 import React from "react";
 import SinglePageCard from "../components/Card/SinglePageCard";
-const SinglePage = (item) => {
-
+const SinglePage = (props) => {
   return (
     <>
-      <SinglePageCard item={item} />
+      <SinglePageCard item={props} />
     </>
   );
 };
