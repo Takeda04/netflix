@@ -4,6 +4,7 @@ import './App.css'
 import Login from './components/Login/Login'
 import Home from './pages/Home'
 import { useEffect } from 'react'
+import SinglePage from './pages/SinglePage'
 
 function App() {
   const navigate = useNavigate();
@@ -11,17 +12,18 @@ function App() {
 
   useEffect(() => {
     if (token) {
-      navigate("/home");
+      return 
     } else {
       navigate("/");
     }
-  }, [navigate, token]);
+  }, [token]);
 
   return (
      <>
       <Routes >
-        <Route path='/home' element={<Home/>}/>
-        <Route path='/' element={<Login/>}/>
+         <Route path='/' element={<Login/>}/>
+         <Route path='/home' element={<Home/>}/>
+         <Route path='/singlepage' element={<SinglePage/>}/>
       </Routes>
     </>
   )

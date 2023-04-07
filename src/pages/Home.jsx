@@ -9,18 +9,18 @@ import MainSlider from "../components/Slider/MainSlider";
 
 
 const Home = () => {
-
-
+  
   return (
     <div className="">
-      <Header />
-      <Body />
+      <Header/>
+      <Body/>
       <Slider />
       <SecondSlider />
       <ThirdSlider />
       <MainSlider />
       <Footer />
     </div>
+    
   );
 };
 

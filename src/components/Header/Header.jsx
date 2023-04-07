@@ -1,17 +1,31 @@
-import React from "react";
-import firebase from 'firebase/compat/app'
-import netflix from '../../assets/images/Vector.svg'
+import React, { useState } from "react";
+import firebase from 'firebase/compat/app';
+import netflix from '../../assets/images/Vector.svg';
 import { useNavigate } from "react-router-dom";
+import { SEARCH_URL } from "../../utils/Api";
+import ky from "ky";
 const Header = () => {
-    const navigate = useNavigate();
-    // let accToken = localStorage.getItem(accessToken)
-    // let refToken = localStorage.getItem(refreshToken)
-    const signOut = ()=> {
-        firebase.auth().signOut();
-        localStorage.removeItem('accessToken');
-        navigate('/')
-        
-    }
+const [inputValue, setInputValue] = useState("");
+
+  const navigate = useNavigate();
+  const signOut = () => {
+    firebase.auth().signOut();
+    localStorage.removeItem('accessToken');
+    navigate('/');
+  };
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    setInputValue(e.target.value);
+    const response = await ky.get(`${SEARCH_URL}${inputValue}`);
+    const searchData = await response.json();
+    const worn = searchData.results;
+    worn.map((item) =>{
+      console.log(item.title);
+    }) // do something with the search data
+  };
+
+
   return (
     <div>
       <header>
@@ -79,7 +93,7 @@ const Header = () => {
                   </a>
                 </li> 
                 <li>
-                  <input className="border rounded-lg px-2 py-1" type="search" />
+                  <input onChange={handleSearch} className="border rounded-lg px-2 py-1" type="search" />
                 </li>
               </ul>
             </div>

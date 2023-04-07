@@ -20,7 +20,7 @@ const SecondSlider = () => {
       <h3 className="text-xl  text-white">Kemal, İzlemeye Devam Et</h3>
       <div className="flex gap-x-4 mt-4">
         {movies.map((item, i) => (
-          <Card key={i} item={item} />
+          <Card key={i} item={item}/>
         ))}
       </div>
     </div>

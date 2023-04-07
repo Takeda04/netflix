@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import SinglePageCard from "../components/Card/SinglePageCard";
+const SinglePage = (item) => {
 
-const SinglePage = () => {
   return (
-    <div>
-        
-    </div>
-  )
-}
+    <>
+      <SinglePageCard item={item} />
+    </>
+  );
+};
 
-export default SinglePage
+export default SinglePage;

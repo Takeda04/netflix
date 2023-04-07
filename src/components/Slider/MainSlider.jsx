@@ -32,7 +32,9 @@ export default class SimpleSlider extends Component {
                 <h2 className="text-white text-2xl mb-4">Netflix Orijinal İçerikleri</h2>
                 <Slider {...settings} className="">
                          {movies.map((item, i) => (
-                           <MainCard key={i} item={item}/>
+                        
+                             <MainCard key={i} item={item}/>
+                          
                          ))}
                 </Slider>
             </div>

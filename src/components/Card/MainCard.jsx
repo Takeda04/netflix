@@ -1,9 +1,12 @@
 import { IMG_URL } from "../../utils/Api"
-
+import { useNavigate } from "react-router"
 const MainCard = ({item}) => {
+  const navigate = useNavigate();
   const handleOpen = () =>{
-    const e = item
-    console.log(e);
+    
+    
+    navigate('/singlepage')
+   
   }
   return (
     <div className='w-[300px]  mb-4 card-body text-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110'>

@@ -1,5 +1,5 @@
 import { IMG_URL } from "../../utils/Api";
-const Card = ({ item }) => {
+const Card = ({ item}) => {
 	const handleClick = () =>{
 		const value = item
 		console.log(value);
