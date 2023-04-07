@@ -8,4 +8,5 @@ const SinglePage = (props) => {
   );
 };
 
+
 export default SinglePage;
