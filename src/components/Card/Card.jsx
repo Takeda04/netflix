@@ -16,6 +16,7 @@ const Card = ({ item }) => {
           <h4 className="text-white">{item.title}</h4>
         </a>
       </button>
+      
     </div>
   );
 };

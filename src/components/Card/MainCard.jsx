@@ -10,6 +10,7 @@ const MainCard = ({ item }) => {
       </Link>
     </div>
   );
+  
 };
 
 export default MainCard;
