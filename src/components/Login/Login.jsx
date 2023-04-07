@@ -31,7 +31,7 @@ function Login() {
         setPassword("");
         toastSuccess("User Signed In Successfully");
         navigate('/home')
-        console.log(result);
+        // console.log(result);
       });
     } catch (error) {
       toastError(error.message);

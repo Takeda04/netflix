@@ -11,7 +11,7 @@ import MainSlider from "../components/Slider/MainSlider";
 const Home = () => {
   
   return (
-    <div className="">
+    <div>
       <Header/>
       <Body/>
       <Slider />
